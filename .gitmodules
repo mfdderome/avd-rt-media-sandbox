@@ -1,0 +1,12 @@
+[submodule "submodules/ansible-cvp"]
+	path = submodules/ansible-cvp
+	url = https://github.com/aristanetworks/ansible-cvp.git
+	branch = devel
+[submodule "submodules/ansible-eos"]
+	path = submodules/ansible-eos
+	url = https://github.com/ansible-collections/arista.eos.git
+	branch = main
+[submodule "submodules/ansible-avd"]
+	path = submodules/ansible-avd
+	url = https://github.com/mfdderome/avd.git
+	branch = devel

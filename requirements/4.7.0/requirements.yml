@@ -1,0 +1,17 @@
+collections:
+  - name: ansible.netcommon
+    version: 6.0.0
+  - name: ansible.utils
+    version: 3.0.0
+  - name: community.general
+    version: 8.5.0
+  - name: netbox.netbox
+    version: 3.17.0
+  - name: arista.eos
+    version: 8.0.0
+  - name: arista.avd
+    version: 4.7.0
+  - name: arista.cvp
+    version: 3.10.1
+  - name: davidban77.gns3
+    version: 1.5.0

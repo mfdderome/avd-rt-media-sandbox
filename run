@@ -1,0 +1,62 @@
+#!/bin/bash
+# Author MFDD + ChatGPT <3
+
+VAULT_LOCATION="vars/vault.yml"
+INVENTORY="vars/inventory.yml"
+PLAYBOOK_GNS3="playbooks/playbook-gns3.yml"
+PLAYBOOK_AVD="playbooks/playbook-avd.yml"
+
+#########################################################################################################
+#                                              functions                                                #
+#########################################################################################################
+
+function requirements {
+    sh ./requirements/requirements.sh $1
+}
+
+function vault {
+    ansible-vault $1 "$VAULT_LOCATION"
+}
+
+function start {
+    ansible-playbook -i "$INVENTORY" "$PLAYBOOK_GNS3" -t start
+}
+
+function build {
+    ansible-playbook -i "$INVENTORY" "$PLAYBOOK_AVD" #-t build -e $1
+}
+
+
+#########################################################################################################
+#                                                 Main                                                  #   
+#########################################################################################################
+
+source "modules/bash/utils.sh"
+
+case "$1" in
+    "")                                     # Empty script args promt the help option
+        help -ls
+        exit 0
+        ;;
+    "-r" | "--requirements")                # Automatically create the pyenv with all requirements
+        requirements $2
+        exit 0
+        ;;
+    "-s" | "--start")                       # Start all the devices in the GNS3 sandbox
+        start $2
+        exit 0
+        ;;
+    "-b" | "--build")                       # Build your fabric using AVD
+        build $2
+        exit 0
+        ;;
+    "-v" | "--vault")                       # Create, edit or view the ansible vault
+        vault $2
+        exit 0
+        ;;
+    *)  
+        echo -e "$lheady Verbose: Custom action made by the user! Hope you know what you are doing :)"    
+        _is_valid_foo $1
+        if [[ $? -eq 0 ]]; then $@; fi
+        ;;
+esac

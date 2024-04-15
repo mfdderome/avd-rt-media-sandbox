@@ -1,0 +1,6 @@
+gns3-gui
+gns3-server
+gns3fy
+pyqt5
+pyqt6
+sip
