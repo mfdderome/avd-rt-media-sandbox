@@ -1,4 +1,5 @@
 hostname: blue-spine1
+is_deployed: true
 router_bgp:
   as: '65200'
   router_id: 10.255.2.1
@@ -24,26 +25,32 @@ router_bgp:
   - ip_address: 10.255.255.1
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65201'
+    peer: blue-leaf1
     description: blue-leaf1_Ethernet1
   - ip_address: 10.255.255.3
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65201'
+    peer: blue-leaf1
     description: blue-leaf1_Ethernet2
   - ip_address: 10.255.255.9
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65202'
+    peer: blue-leaf2
     description: blue-leaf2_Ethernet1
   - ip_address: 10.255.255.11
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65202'
+    peer: blue-leaf2
     description: blue-leaf2_Ethernet2
   - ip_address: 10.255.253.3
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65401'
+    peer: media-PTP-1
     description: media-PTP-1_Ethernet2
   - ip_address: 10.255.253.7
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65402'
+    peer: media-PTP-2
     description: media-PTP-2_Ethernet2
 static_routes:
 - vrf: MGMT
@@ -238,3 +245,5 @@ loopback_interfaces:
   ip_address: 10.255.2.1/32
 ip_igmp_snooping:
   globally_enabled: true
+metadata:
+  platform: vEOS-lab

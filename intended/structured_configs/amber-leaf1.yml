@@ -1,4 +1,5 @@
 hostname: amber-leaf1
+is_deployed: true
 router_bgp:
   as: '65101'
   router_id: 10.255.1.2
@@ -24,10 +25,12 @@ router_bgp:
   - ip_address: 10.255.254.0
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65100'
+    peer: amber-spine1
     description: amber-spine1_Ethernet1
   - ip_address: 10.255.254.2
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65100'
+    peer: amber-spine1
     description: amber-spine1_Ethernet2
 static_routes:
 - vrf: MGMT
@@ -1123,3 +1126,5 @@ vlan_interfaces:
   ip_address: 10.10.111.1/24
   ip_helpers:
   - ip_helper: 10.252.4.253
+metadata:
+  platform: vEOS-lab

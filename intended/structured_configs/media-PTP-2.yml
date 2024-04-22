@@ -1,4 +1,5 @@
 hostname: media-PTP-2
+is_deployed: true
 router_bgp:
   as: '65402'
   router_id: 10.255.3.2
@@ -24,10 +25,12 @@ router_bgp:
   - ip_address: 10.255.253.4
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65100'
+    peer: amber-spine1
     description: amber-spine1_Ethernet6
   - ip_address: 10.255.253.6
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65200'
+    peer: blue-spine1
     description: blue-spine1_Ethernet6
 static_routes:
 - vrf: MGMT
@@ -508,3 +511,5 @@ vlan_interfaces:
   description: VLAN132
   shutdown: false
   ip_address: 10.10.132.1/24
+metadata:
+  platform: vEOS-lab
