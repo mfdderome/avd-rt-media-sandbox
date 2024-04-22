@@ -28,6 +28,15 @@ git submodule add --force --branch devel https://github.com/mfdderome/avd.git su
     git switch 2901-m_and_e-l3ls-example
     ```
 
+## Media example
+
+```
+cp -r submodules/ansible-avd/ansible_collections/arista/avd/examples/media/documentation/* ./documentation
+cp -r submodules/ansible-avd/ansible_collections/arista/avd/examples/media/group_vars .
+cp -r submodules/ansible-avd/ansible_collections/arista/avd/examples/media/intended .
+cp submodules/ansible-avd/ansible_collections/arista/avd/examples/media/*.yml .
+```
+
 ## GNS3
 
 * __Bridging__
